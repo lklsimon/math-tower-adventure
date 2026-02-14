@@ -37,14 +37,13 @@ body {
     padding: 10px;
 }
 
-.menu-screen, .character-selection, .game-screen, 
-.reward-screen, .victory-screen, .gameover-screen, 
+.menu-screen, .character-selection, .game-screen,
+.reward-screen, .victory-screen, .gameover-screen,
 .leaderboard-screen {
     width: 100%;
     max-width: inherit;
-    overflow: hidden;
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 @keyframes float {
@@ -482,7 +481,7 @@ body {
 
 .question-area {
     text-align: center;
-    overflow: hidden;
+    overflow: visible;
     min-width: 0;
 }
 
@@ -543,7 +542,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin-bottom: 1.5rem;
-    overflow: hidden;
+    overflow: visible;
     min-width: 0;
 }
 
@@ -1068,52 +1067,63 @@ body {
     .character-cards {
         flex-direction: column;
     }
-    
+
     .battle-area {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .question-text {
         font-size: 2rem;
     }
-    
+
     .answers-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .reward-cards {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-display {
         grid-template-columns: 1fr;
     }
-    
+
     .leaderboard-entry {
         grid-template-columns: 45px 1fr auto;
         grid-template-rows: auto auto;
         gap: 0.3rem;
         padding: 0.6rem;
     }
-    
+
     .entry-rank {
         width: 35px;
         height: 35px;
         font-size: 1rem;
     }
-    
+
     .entry-character {
         font-size: 0.75rem;
     }
-    
+
     .stat-item {
         font-size: 0.7rem;
         padding: 0.2rem 0.4rem;
     }
-    
+
     .entry-time {
         font-size: 0.85rem;
+    }
+
+    /* Fix answer button visibility on mobile */
+    .game-screen {
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .question-area {
+        overflow-y: auto;
+        min-height: 0;
     }
 }
 
@@ -1121,45 +1131,69 @@ body {
     #app {
         padding: 5px;
     }
-    
-    .menu-screen, .character-selection, .game-screen, 
-    .reward-screen, .victory-screen, .gameover-screen, 
+
+    .menu-screen, .character-selection, .game-screen,
+    .reward-screen, .victory-screen, .gameover-screen,
     .leaderboard-screen {
         padding: 1rem;
         border-radius: 20px;
+        max-height: 95vh;
     }
-    
+
     .game-title, .selection-title, .leaderboard-title {
         font-size: 1.5rem;
     }
-    
+
     .question-text {
         font-size: 1.8rem;
         padding: 0.8rem;
     }
-    
+
     .answer-btn {
-        padding: 0.8rem;
+        padding: 1rem;
         font-size: 1.2rem;
+        min-height: 50px;
     }
-    
+
+    .answers-grid {
+        gap: 0.8rem;
+    }
+
     .character-sprite, .monster-sprite {
         font-size: 3rem;
     }
-    
+
     .monster-sprite.boss-anim {
         font-size: 4rem;
     }
-    
+
     .stats-display {
         gap: 0.5rem;
     }
-    
+
     .time-value, .hp-value, .accuracy-value, .character-value {
         font-size: 1.1rem;
     }
-    
+
     .entry-name {
         font-size: 0.9rem;
+    }
+
+    /* Ensure answers are visible on small screens */
+    .game-screen {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .question-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow-y: auto;
+    }
+
+    .battle-area {
+        flex-shrink: 0;
     }
 }
