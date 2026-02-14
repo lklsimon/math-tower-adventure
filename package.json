@@ -1,0 +1,17 @@
+{
+  "name": "tower-adventure",
+  "version": "1.0.0",
+  "description": "Math Tower Adventure Game for Elementary Students",
+  "main": "index.html",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["game", "math", "education"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
