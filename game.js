@@ -419,6 +419,11 @@ function handleCorrectAnswer() {
         gameState.player.doubleDamageStacks--;
     }
     
+    // Decrement noTimeLimitStacks (hourglass effect) on correct answer
+    if (gameState.player.noTimeLimitStacks > 0) {
+        gameState.player.noTimeLimitStacks--;
+    }
+    
     gameState.monster.hp -= damage;
     
     showDamageEffect(damage);
