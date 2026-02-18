@@ -263,6 +263,7 @@ function renderGameScreen(app) {
         (gameState.player.character.name === 'Archer' ? 25 : 30);
     gameState.timer = timeLimit;
 
+
     app.innerHTML = `
         <div class="game-screen">
             <div class="game-header">
@@ -271,30 +272,30 @@ function renderGameScreen(app) {
                     <span class="level-number">${gameState.currentLevel}</span>
                     ${isBoss ? '<span class="boss-badge">BOSS!</span>' : ''}
                 </div>
-                <div class="player-info">
-                    <div class="player-icon">${gameState.player.character.emoji}</div>
-                    <div class="hp-bar">
-                        <div class="hp-bar-inner" style="width: ${(gameState.player.currentHP / gameState.player.maxHP) * 100}%"></div>
-                    </div>
-                    <div class="hp-text">${gameState.player.currentHP}/${gameState.player.maxHP} HP</div>
-                </div>
             </div>
 
             <div class="battle-area">
                 <div class="player-character">
                     <div class="character-sprite">${gameState.player.character.emoji}</div>
                     <div class="character-label">You</div>
+                    <div class="hp-bar player-hp-bar">
+                        <div class="hp-bar-inner" style="width: ${(gameState.player.currentHP / gameState.player.maxHP) * 100}%"></div>
+                    </div>
+                    <div class="hp-text">${gameState.player.currentHP}/${gameState.player.maxHP}</div>
                 </div>
-                
-                <div class="vs-badge">⚔️</div>
-                
+
+                <div class="vs-section">
+                    <div class="level-badge">${gameState.currentLevel}</div>
+                    <div class="vs-badge">⚔️</div>
+                </div>
+
                 <div class="monster ${isBoss ? 'boss' : ''}">
-                    <div class="monster-sprite ${isBoss ? 'boss-anim' : ''}">${gameState.monster.emoji}</div>
+                    <div class="monster-sprite">${gameState.monster.emoji}</div>
                     <div class="monster-name">${gameState.monster.name}</div>
                     <div class="monster-hp-bar">
                         <div class="monster-hp-inner" style="width: ${(gameState.monster.hp / gameState.monster.maxHP) * 100}%"></div>
                     </div>
-                    <div class="monster-hp-text">${gameState.monster.hp}/${gameState.monster.maxHP} HP</div>
+                    <div class="monster-hp-text">${gameState.monster.hp}/${gameState.monster.maxHP}</div>
                 </div>
             </div>
 
@@ -306,7 +307,7 @@ function renderGameScreen(app) {
                     </div>
                     <div class="timer-text" id="timerText">${gameState.player.noTimeLimitStacks > 0 ? '∞' : '30'}</div>
                 </div>
-                
+
                 <div class="question-box">
                     <div class="question-text">${question.question}</div>
                 </div>
