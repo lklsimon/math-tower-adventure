@@ -261,9 +261,21 @@ body {
     animation: glow 1.5s ease-in-out infinite;
 }
 
+.character-emoji, .character-sprite, .monster-sprite {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
 .character-emoji {
     font-size: 4rem;
     margin-bottom: 1rem;
+}
+
+.character-image, .monster-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
 }
 
 .character-name {
@@ -444,6 +456,12 @@ body {
 .character-sprite, .monster-sprite {
     font-size: 3rem;
     margin-bottom: 0.3rem;
+}
+
+.character-sprite img, .monster-sprite img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .monster-sprite.boss-anim {

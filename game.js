@@ -39,18 +39,21 @@ const CHARACTERS = {
     warrior: {
         name: 'Warrior',
         emoji: '🛡️',
+        image: 'image/Warrior.png',
         ability: 'Answering wrong only loses 0.5 HP',
         color: '#e74c3c'
     },
     mage: {
         name: 'Mage',
         emoji: '🧙',
+        image: 'image/Wizard.png',
         ability: 'Double damage every 3 correct answers (50% chance lose 2 HP on wrong answer)',
         color: '#9b59b6'
     },
     archer: {
         name: 'Archer',
         emoji: '🏹',
+        image: 'image/Archer.png',
         ability: '5 seconds less time per question (50% chance no HP loss on wrong answer)',
         color: '#2ecc71'
     }
@@ -192,7 +195,7 @@ function renderCharacterSelection(app) {
             </div>
             <div class="character-cards">
                 <div class="character-card" data-character="warrior" style="--accent-color: #e74c3c;">
-                    <div class="character-emoji">🛡️</div>
+                    <img class="character-image" src="image/Warrior.png" alt="Warrior">
                     <div class="character-name">Warrior</div>
                     <div class="character-ability">
                         <div class="ability-icon">💪</div>
@@ -200,7 +203,7 @@ function renderCharacterSelection(app) {
                     </div>
                 </div>
                 <div class="character-card" data-character="mage" style="--accent-color: #9b59b6;">
-                    <div class="character-emoji">🧙</div>
+                    <img class="character-image" src="image/Wizard.png" alt="Mage">
                     <div class="character-name">Mage</div>
                     <div class="character-ability">
                         <div class="ability-icon">⚡</div>
@@ -208,7 +211,7 @@ function renderCharacterSelection(app) {
                     </div>
                 </div>
                 <div class="character-card" data-character="archer" style="--accent-color: #2ecc71;">
-                    <div class="character-emoji">🏹</div>
+                    <img class="character-image" src="image/Archer.png" alt="Archer">
                     <div class="character-name">Archer</div>
                     <div class="character-ability">
                         <div class="ability-icon">🎯</div>
@@ -268,7 +271,9 @@ function renderGameScreen(app) {
         <div class="game-screen">
             <div class="battle-area">
                 <div class="player-character">
-                    <div class="character-sprite">${gameState.player.character.emoji}</div>
+                    <div class="character-sprite">
+                        ${gameState.player.character.image ? `<img src="${gameState.player.character.image}" alt="${gameState.player.character.name}">` : gameState.player.character.emoji}
+                    </div>
                     <div class="character-label">You</div>
                     <div class="hp-bar player-hp-bar">
                         <div class="hp-bar-inner" style="width: ${(gameState.player.currentHP / gameState.player.maxHP) * 100}%"></div>
@@ -282,7 +287,9 @@ function renderGameScreen(app) {
             </div>
 
                 <div class="monster ${isBoss ? 'boss' : ''}">
-                    <div class="monster-sprite">${gameState.monster.emoji}</div>
+                    <div class="monster-sprite">
+                        ${gameState.monster.image ? `<img src="${gameState.monster.image}" alt="${gameState.monster.name}">` : gameState.monster.emoji}
+                    </div>
                     <div class="monster-name">${gameState.monster.name}</div>
                     <div class="monster-hp-bar">
                         <div class="monster-hp-inner" style="width: ${(gameState.monster.hp / gameState.monster.maxHP) * 100}%"></div>
