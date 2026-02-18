@@ -266,14 +266,6 @@ function renderGameScreen(app) {
 
     app.innerHTML = `
         <div class="game-screen">
-            <div class="game-header">
-                <div class="level-indicator">
-                    <span class="level-text">Level</span>
-                    <span class="level-number">${gameState.currentLevel}</span>
-                    ${isBoss ? '<span class="boss-badge">BOSS!</span>' : ''}
-                </div>
-            </div>
-
             <div class="battle-area">
                 <div class="player-character">
                     <div class="character-sprite">${gameState.player.character.emoji}</div>
@@ -284,10 +276,10 @@ function renderGameScreen(app) {
                     <div class="hp-text">${gameState.player.currentHP}/${gameState.player.maxHP}</div>
                 </div>
 
-                <div class="vs-section">
-                    <div class="level-badge">${gameState.currentLevel}</div>
-                    <div class="vs-badge">⚔️</div>
-                </div>
+            <div class="vs-section">
+                <div class="level-badge">${gameState.currentLevel}${isBoss ? ' <span class="boss-badge-small">BOSS!</span>' : ''}</div>
+                <div class="vs-badge">⚔️</div>
+            </div>
 
                 <div class="monster ${isBoss ? 'boss' : ''}">
                     <div class="monster-sprite">${gameState.monster.emoji}</div>

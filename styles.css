@@ -505,6 +505,17 @@ body {
     font-weight: bold;
 }
 
+.boss-badge-small {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 6px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.6rem;
+    animation: pulse 1s ease-in-out infinite;
+    margin-left: 0.2rem;
+}
+
 .question-area {
     text-align: center;
     overflow: visible;
